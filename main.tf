@@ -8,15 +8,14 @@ provider "google" {
   
 }
 
-resource "google_compute_network" "vpc_network" {
+resource "google_storage_bucket" "gcp_bucket" {
+  project      = var.project
+  name          = var.bucket-name
+  location      = "US"
+  force_destroy = true
 
-  name = "terraform-network"
+  labels = {
+      env        =  "dev"
+      foo        =  "bar"
+    }
 }
-
-resource "google_compute_subnetwork" "public-subnetwork" {
-
-  name          = "terraform-subnetwork"
-  ip_cidr_range = "10.2.0.0/16"
-  region        = "us-central1"
-  network       = google_compute_network.vpc_network.name
-  }
