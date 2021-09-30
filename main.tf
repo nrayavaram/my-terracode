@@ -2,7 +2,7 @@ provider "google" {
 
   version = "3.5.0"
   access_token = var.access_token
-  project = "tokyo-nomad-323506"
+  project = "manifest-access-320809"
   region  = "us-central1"
   zone    = "us-central1-c"
   
